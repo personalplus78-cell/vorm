@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "python311Packages.pip", "poppler_utils", "fontconfig", "dejavu_fonts"]
+
+[phases.install]
+cmds = ["python3.11 -m pip install -r requirements.txt"]
+
+[start]
+cmd = "gunicorn app:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
